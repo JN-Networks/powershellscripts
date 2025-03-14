@@ -8,8 +8,8 @@ $files = Get-ChildItem -Path $Pfad -File -Recurse
 
 $results = @()
 
-foreach ($Datei in $Dateien) {
-    $pointer = Select-String -Path $Datei.FullName -Pattern $Suchtext
+foreach ($files in $file) {
+    $pointer = Select-String -Path $files.FullName -Pattern $Suchtext
     
     foreach ($pointerline in $pointer) {
         $results += [PSCustomObject]@{

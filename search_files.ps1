@@ -1,34 +1,27 @@
-# Benutzer nach Pfad fragen
-Write-Host "Bitte geben Sie den Pfad ein:" -ForegroundColor Yellow
-$Pfad = Read-Host "Pfad" 
+Write-Host "Please insert your path:" -ForegroundColor Yellow
+$path = Read-Host "path" 
 
-# Benutzer nach Suchtext fragen
-Write-Host "Bitte geben Sie den Suchtext ein:" -ForegroundColor Yellow
-$Suchtext = Read-Host "Suchtext"
+Write-Host "Please insert your searchtext:" -ForegroundColor Yellow
+$searchtext = Read-Host "searchtext"
 
-# Alle Dateien im angegebenen Pfad rekursiv durchsuchen
-$Dateien = Get-ChildItem -Path $Pfad -File -Recurse
+$files = Get-ChildItem -Path $Pfad -File -Recurse
 
-# Ergebnisse speichern
-$Ergebnisse = @()
+$results = @()
 
 foreach ($Datei in $Dateien) {
-    # Dateiinhalt durchsuchen
-    $Treffer = Select-String -Path $Datei.FullName -Pattern $Suchtext
+    $pointer = Select-String -Path $Datei.FullName -Pattern $Suchtext
     
-    foreach ($TrefferZeile in $Treffer) {
-        # Daten für Tabelle speichern
-        $Ergebnisse += [PSCustomObject]@{
-            "Dateiname" = $Datei.Name
-            "Pfad" = $Datei.FullName
-            "Zeilennummer" = $TrefferZeile.LineNumber
+    foreach ($pointerline in $pointer) {
+        $results += [PSCustomObject]@{
+            "Filename" = $files.Name
+            "Path" = $files.FullName
+            "Pointer Line" = $pointerline.LineNumber
         }
     }
 }
 
-# Tabelle ausgeben
-if ($Ergebnisse.Count -gt 0) {
-    $Ergebnisse | Format-Table -AutoSize
+if ($results.Count -gt 0) {
+    $results | Format-Table -AutoSize
 } else {
-    Write-Host "Keine Treffer gefunden." -ForegroundColor Red
+    Write-Host "No results find." -ForegroundColor Red
 }

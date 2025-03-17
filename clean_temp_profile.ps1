@@ -1,3 +1,9 @@
+#####################################
+#   Copyright 2025 by Justin Nolte  #
+#   Please be note that the script  #
+#   is under the MIT license        #
+#####################################
+
 function Get-FolderSize {
     param (
         [string]$FolderPath

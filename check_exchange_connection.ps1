@@ -1,3 +1,9 @@
+#####################################
+#   Copyright 2025 by Justin Nolte  #
+#   Please be note that the script  #
+#   is under the MIT license        #
+#####################################
+
 $server = "YOUR_SERVERNAME"
 $ports = @(25, 587, 993, 995)
 $logfile = "YOUR_LOG_PATH"

@@ -1,3 +1,9 @@
+#####################################
+#   Copyright 2025 by Justin Nolte  #
+#   Please be note that the script  #
+#   is under the MIT license        #
+#####################################
+
 Write-Host "Please insert your path:" -ForegroundColor Yellow
 $path = Read-Host "path"
 

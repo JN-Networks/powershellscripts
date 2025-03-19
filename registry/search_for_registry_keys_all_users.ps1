@@ -18,7 +18,7 @@ foreach ($SID in $SIDs) {
         $RegPath = "Registry::HKEY_USERS\$SIDPath\$RegistryPath"
         if (Test-Path $RegPath) {
             Write-Output "SID: $SIDPath ($account)"
-            Write-Output "Alle Registry-Werte für HookCairo.Connect:"
+            Write-Output "All registry values:"
             $Properties = Get-ItemProperty -Path $RegPath
             foreach ($Property in $Properties.PSObject.Properties) {
                 if ($Property.Name -notmatch '^PS') {

@@ -1,1 +1,3 @@
-A repository of usefull Powershell Commands for IT-Support from Justin Nolte
+A repository of usefull Powershell scripts for IT-Support from Justin Nolte
+
+Please be note that all license rights are by Justin Nolte

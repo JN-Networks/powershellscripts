@@ -28,6 +28,6 @@ foreach ($SID in $SIDs) {
             Write-Output "-----------------------------------------"
         }
     } catch {
-        Write-Output "SID: $SIDPath - No valid User, scipped."
+        Write-Output "SID: $SIDPath - No valid User, skipped."
     }
 }
